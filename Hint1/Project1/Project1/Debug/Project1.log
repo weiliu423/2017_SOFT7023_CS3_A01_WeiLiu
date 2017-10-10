@@ -1,0 +1,9 @@
+﻿  pal.c
+c:\users\gaming pc\desktop\ex1\pal.c(73): warning C4047: 'initializing': 'int' differs in levels of indirection from 'int *'
+c:\users\gaming pc\desktop\ex1\pal.c(122): warning C4101: 'i': unreferenced local variable
+c:\users\gaming pc\desktop\ex1\pal.c(186): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+c:\users\gaming pc\desktop\ex1\pal.c(186): warning C4024: 'process_movement': different types for formal and actual parameter 3
+c:\users\gaming pc\desktop\ex1\pal.c(157): warning C4047: 'initializing': 'int *' differs in levels of indirection from 'int (*)[6]'
+c:\users\gaming pc\desktop\ex1\pal.c(160): warning C4047: 'initializing': 'int' differs in levels of indirection from 'int *'
+  Project1.vcxproj -> C:\Users\Gaming PC\source\repos\Project1\Debug\Project1.exe
+  Project1.vcxproj -> C:\Users\Gaming PC\source\repos\Project1\Debug\Project1.pdb (Partial PDB)
