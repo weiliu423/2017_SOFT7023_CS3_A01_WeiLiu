@@ -375,50 +375,78 @@ bool winning_diagonal(game* g) {
 	}
 	//// descendingDiagonalCheck
 	//for (int i = (*g).columns; i <= (*g).columns - (*g).connect; i--) {
-		
+	if ((*g).connect >= 4) {
 		for (int i = 0; i < (*g).columns - (*g).connect; i++) {
-		  for (int j = (*g).rows; j > (*g).rows - (*g).connect; j--) {  
-			P1count = 0;
-			P2count = 0;
-			
-			for (int c = 0; c < (*g).connect; c++)
-			{
-				if ((*g).board[i + c][j - c] == 'x')
-				{
-					P1count++;
-					printf("\nx is found");
-				}
-				else if ((*g).board[i + c][j - c] == 'o') {
+			for (int j = (*g).rows; j > (*g).rows - (*g).connect; j--) {
+				P1count = 0;
+				P2count = 0;
 
-					P2count++;
-				}
-				else {
-					P1count = 0;
-					P2count = 0;
+				for (int c = 0; c < (*g).connect; c++)
+				{
+					if ((*g).board[i + c][j - c] == 'x')
+					{
+						P1count++;
+					}
+					else if ((*g).board[i + c][j - c] == 'o') {
+
+						P2count++;
+					}
+					else {
+						P1count = 0;
+						P2count = 0;
+					}
+
+					if (P1count == (*g).connect)
+					{
+						return 1;
+					}
+					else if (P2count == (*g).connect)
+					{
+						return 2;
+					}
+
 				}
 
-				if (P1count == (*g).connect)
-				{
-					return 1;
-				}
-				else if (P2count == (*g).connect)
-				{
-					return 2;
-				}
 
 			}
 
 
 		}
+	}
+	else {
+		for (int i = 0; i < (*g).columns - (*g).connect; i++) {
+				for (int j = (*g).rows-1; j > (*g).rows - (*g).connect; j--) {
+					P1count = 0;
+					P2count = 0;
 
+					for (int c = 0; c < (*g).connect; c++)
+					{
+						if ((*g).board[j - c][i + c] == 'x')
+						{
+							P1count++;
+						}
+						else if ((*g).board[j - c][i + c] == 'o') {
 
-			/*if ((*g).board[i-1][j] == 'x' && (*g).board[i - 1][j - 1] == 'x' && (*g).board[i - 2][j - 2] == 'x' && (*g).board[i - 3][j - 3] == 'x') {
-				return 1;
+							P2count++;
+						}
+						else {
+							P1count = 0;
+							P2count = 0;
+						}
+
+						if (P1count == (*g).connect)
+						{
+							return 1;
+						}
+						else if (P2count == (*g).connect)
+						{
+							return 2;
+						}
+
+					}
+
+				}
 			}
-			else if ((*g).board[i-1][j] == 'o' && (*g).board[i - 1][j - 1] == 'o' && (*g).board[i - 2][j - 2] == 'o' && (*g).board[i - 3][j - 3] == 'o') {
-				return 2;
-			}*/
-		
 	}
 }
 
