@@ -342,6 +342,7 @@ bool winning_column(game* g) {
 //------------------------------------
 bool winning_diagonal(game* g) {
 	int P1count, P2count;
+	//// descendingDiagonalCheck
 	for (int i = 0; i <= (*g).columns- (*g).connect; i++) {
 		for (int j = 0; j <= (*g).rows -(*g).connect; j++) {
 			
@@ -373,8 +374,7 @@ bool winning_diagonal(game* g) {
 			}
 		}
 	}
-	//// descendingDiagonalCheck
-	//for (int i = (*g).columns; i <= (*g).columns - (*g).connect; i--) {
+	//// AscendingDiagonalCheck
 	if ((*g).connect >= 4) {
 		for (int i = 0; i < (*g).columns - (*g).connect; i++) {
 			for (int j = (*g).rows; j > (*g).rows - (*g).connect; j--) {
