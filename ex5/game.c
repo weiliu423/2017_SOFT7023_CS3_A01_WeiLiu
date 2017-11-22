@@ -140,8 +140,7 @@ int user_movement(game* g) {
 	int x = res - '0';
 	for (int i = (*g).rows-1; i + 1 > 0; i--) {
 		if (x <= (*g).columns && x > 0 && (*g).board[0][x - 1] == ' ') {
-			printf("%d", i);
-			printf("\nx is %d", x);
+
 			if ((*g).board[i][x - 1] == ' ') {
 				if ((*g).status == 1)
 				{
@@ -152,7 +151,7 @@ int user_movement(game* g) {
 				}
 				else {
 					(*g).board[i][x - 1] = 'x';
-					printf("\n\nnow is x");
+					
 					break;
 				}
 			}
@@ -203,7 +202,7 @@ void new_movement(game* g, char* p1, char* p2) {
 				display_game_status(g);
 				(*g).status = (*g).status + 1;
 				user_movement(g);
-				system("cls");
+				//system("cls");
 				display_board(g);
 				winning_player(g, p1, p2);
 			}
@@ -211,7 +210,7 @@ void new_movement(game* g, char* p1, char* p2) {
 				display_game_status(g);
 				(*g).status = (*g).status - 1;
 				user_movement(g);
-				system("cls");
+				//system("cls");
 				display_board(g);
 				winning_player(g, p1, p2);
 			}
@@ -375,18 +374,21 @@ bool winning_diagonal(game* g) {
 		}
 	}
 	//// descendingDiagonalCheck
-	for (int i = (*g).columns; i <= (*g).columns - (*g).connect; i--) {
-		for (int j = (*g).rows; j <= (*g).rows - (*g).connect; j--) {
+	//for (int i = (*g).columns; i <= (*g).columns - (*g).connect; i--) {
+		
+		for (int i = 0; i < (*g).columns - (*g).connect; i++) {
+		  for (int j = (*g).rows; j > (*g).rows - (*g).connect; j--) {  
 			P1count = 0;
 			P2count = 0;
+			
 			for (int c = 0; c < (*g).connect; c++)
 			{
-
-				if ((*g).board[j - c][i - c] == 'x')
+				if ((*g).board[i + c][j - c] == 'x')
 				{
 					P1count++;
+					printf("\nx is found");
 				}
-				else if ((*g).board[j - c][i - c] == 'o') {
+				else if ((*g).board[i + c][j - c] == 'o') {
 
 					P2count++;
 				}
